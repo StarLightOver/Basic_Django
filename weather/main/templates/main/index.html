@@ -1,0 +1,27 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} {{ title }} {% endblock  %}
+
+{% block content %}
+    <div class="features">
+        <h1>{{ title }}</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Quisque non erat viverra, tristique eros at, cursus purus.
+            Aliquam quis nunc sed metus dictum cursus at sit amet quam.
+            Quisque pellentesque quam eu ullamcorper efficitur.
+            Sed ut efficitur lorem.
+            Fusce pharetra ante sit amet libero convallis, a scelerisque lectus egestas.</p>
+        <button class="btn btn-warning">Просто кнопка</button>
+        {% for val in values %}
+            {% if val == 'Hello' %}
+                {% filter upper %}
+                    <p>{{ val }}</p>
+                {% endfilter %}
+            {% endif %}
+        {% endfor %}
+
+        {% for val in obj %}
+            <p>{{ val|upper }}</p>
+        {% endfor %}
+    </div>
+{% endblock  %}
